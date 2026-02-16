@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * API Gateway 라우팅 설정
  *
  * - CMS Admin API: /api/admin/** → lb://cms
+ * - Product Categories: /api/categories/** → lb://product
  * - Product Recommendations: /api/recommendations/** → lb://product
  * - Product Interactions: /api/interactions/** → lb://product
  * - Product Uploads: /uploads/** → lb://product (이미지 서빙)
@@ -23,6 +24,11 @@ public class GatewayConfig {
                 .route("cms-service", r -> r
                         .path("/api/admin/**")
                         .uri("lb://cms"))
+
+                // Product Categories API 라우팅
+                .route("product-categories", r -> r
+                        .path("/api/categories/**")
+                        .uri("lb://product"))
 
                 // Product Recommendations API 라우팅
                 .route("product-recommendations", r -> r
