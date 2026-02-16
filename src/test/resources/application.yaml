@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: false
+
+auth:
+  issuer: https://test-tenant.auth0.com/
+  audience:
+    shop: https://api.test.com/shop
+    cms: https://api.test.com/cms
+
+eureka:
+  client:
+    enabled: false

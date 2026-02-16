@@ -39,6 +39,13 @@ management:
     health:
       show-details: always
 
+# Auth0 인증 설정
+auth:
+  issuer: ${AUTH0_ISSUER_URI:https://dev-h73kda6a4tz25t6y.us.auth0.com/}
+  audience:
+    shop: ${AUTH0_AUDIENCE_SHOP:http://localhost:9090}
+    cms: ${AUTH0_AUDIENCE_CMS:http://localhost:18080}
+
 # 디버깅용 로깅
 logging:
   level:
