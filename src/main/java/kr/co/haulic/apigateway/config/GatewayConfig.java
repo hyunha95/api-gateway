@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * - Product Categories: /api/categories/** → lb://product
  * - Product Recommendations: /api/recommendations/** → lb://product
  * - Product Interactions: /api/interactions/** → lb://product
+ * - Products API: /api/products/** → lb://product
  * - Product Uploads: /uploads/** → lb://product (이미지 서빙)
  */
 @Configuration
@@ -38,6 +39,11 @@ public class GatewayConfig {
                 // Product Interactions API 라우팅
                 .route("product-interactions", r -> r
                         .path("/api/interactions/**")
+                        .uri("lb://product"))
+
+                // Products API 라우팅
+                .route("product-api", r -> r
+                        .path("/api/products/**")
                         .uri("lb://product"))
 
                 // Product 이미지 업로드 파일 서빙
